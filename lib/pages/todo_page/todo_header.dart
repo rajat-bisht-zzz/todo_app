@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/cubit/cubits.dart';
 
 class TodoHeader extends StatelessWidget {
   const TodoHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'TODO',
-          style: TextStyle(fontSize: 40),
+          'Hello, Rajat',
+          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          'here\'s what\'s due today',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
         ),
         // BlocBuilder<ActiveTodoCountCubit, ActiveTodoCountState>(
         //   builder: (context, state) {
@@ -22,10 +24,10 @@ class TodoHeader extends StatelessWidget {
         //     );
         //   },
         // ),
-        Text(
-          '${context.watch<ActiveTodoCountCubit>().state.activeTodoCount} items left',
-          style: TextStyle(fontSize: 20, color: Colors.red),
-        ),
+        // Text(
+        //   '${context.watch<ActiveTodoCountCubit>().state.activeTodoCount} items left',
+        //   style: TextStyle(fontSize: 20, color: Colors.red),
+        // ),
       ],
     );
   }
