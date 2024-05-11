@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/cubit/cubits.dart';
 import 'package:todo_app/pages/todo_page/todo_page.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,8 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<ActiveTodoCountCubit>(
           create: (context) => ActiveTodoCountCubit(
-            initialActiveTodoCount:
-                context.read<TodoListCubit>().state.todos.length,
+            initialActiveTodoCount: context.read<TodoListCubit>().state.todos.length,
             todoListCubit: BlocProvider.of<TodoListCubit>(context),
           ),
         ),
@@ -41,10 +41,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: lightMode,
         home: TodoPage(),
       ),
     );
