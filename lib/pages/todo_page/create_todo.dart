@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/cubit/cubits.dart';
+import 'package:todo_app/widgets/primary_search_field.dart';
 
 class CreateTodo extends StatefulWidget {
   const CreateTodo({super.key});
@@ -20,11 +21,9 @@ class _CreateTodoState extends State<CreateTodo> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return PrimaryTextField(
       controller: newTodoController,
-      decoration: InputDecoration(
-        labelText: 'What to do?',
-      ),
+      labelText: 'Instant add, What to do?',
       onSubmitted: (String? todoDesc) {
         if (todoDesc != null && todoDesc.trim().isNotEmpty) {
           context.read<TodoListCubit>().addTodo(todoDesc);
