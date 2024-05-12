@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_app/widgets/primary_heading.dart';
+import 'package:todo_app/widgets/secondary_heading.dart';
 
 class TodoHeader extends StatelessWidget {
   const TodoHeader({super.key});
@@ -12,18 +14,22 @@ class TodoHeader extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          formattedDate,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          'Hello, Rajat',
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          'here\'s what\'s due today',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
-        ),
+        SecondaryHeading(headingText: formattedDate.toLowerCase()),
+        PrimaryHeading(headingText: 'Hello, Rajat'),
+        SecondaryHeading(headingText: 'here\'s what\'s due today')
+
+        // Text(
+        //   formattedDate,
+        //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        // ),
+        // Text(
+        //   '',
+        //   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+        // ),
+        // Text(
+        //   'here\'s what\'s due today',
+        //   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
+        // ),
         // BlocBuilder<ActiveTodoCountCubit, ActiveTodoCountState>(
         //   builder: (context, state) {
         //     return Text(
