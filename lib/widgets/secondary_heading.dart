@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SecondaryHeader extends StatelessWidget {
-  const SecondaryHeader({super.key});
+class SecondaryHeading extends StatelessWidget {
+  const SecondaryHeading({super.key});
 
   @override
   Widget build(BuildContext context) {
