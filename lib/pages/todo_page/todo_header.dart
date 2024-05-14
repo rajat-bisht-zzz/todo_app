@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:todo_app/widgets/primary_heading.dart';
 import 'package:todo_app/widgets/secondary_heading.dart';
 
@@ -8,13 +7,9 @@ class TodoHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
-    String formattedDate = DateFormat('EEEE, d MMMM').format(now);
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SecondaryHeading(headingText: formattedDate.toLowerCase()),
         PrimaryHeading(headingText: 'Hello, Rajat'),
         SecondaryHeading(headingText: 'here\'s what\'s due today')
 
