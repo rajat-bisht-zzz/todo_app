@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/cubit/cubits.dart';
-import 'package:todo_app/pages/todo_page/todo_page.dart';
-import 'package:todo_app/theme/theme.dart';
+import 'package:todo_app/src/cubit/cubits.dart';
+import 'package:todo_app/src/user_interface/todo_list/todo_items/todo_list_cubit.dart';
+import 'package:todo_app/src/user_interface/todo_page/search_field/todo_search_cubit.dart';
+import 'package:todo_app/src/user_interface/todo_page/todo_page.dart';
+import 'package:todo_app/src/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());

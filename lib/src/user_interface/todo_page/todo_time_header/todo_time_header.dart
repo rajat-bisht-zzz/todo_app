@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_app/widgets/secondary_heading.dart';
+import 'package:todo_app/src/widgets/secondary_heading.dart';
 
 class TodoTimeHeader extends StatelessWidget {
   const TodoTimeHeader({super.key});

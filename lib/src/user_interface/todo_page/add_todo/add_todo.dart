@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/cubit/cubits.dart';
-import 'package:todo_app/widgets/primary_search_field.dart';
+import 'package:todo_app/src/user_interface/todo_list/todo_items/todo_list_cubit.dart';
+import 'package:todo_app/src/widgets/primary_search_field.dart';
 
-class CreateTodo extends StatefulWidget {
-  const CreateTodo({super.key});
+class AddTodo extends StatefulWidget {
+  const AddTodo({super.key});
 
   @override
-  State<CreateTodo> createState() => _CreateTodoState();
+  State<AddTodo> createState() => _AddTodoState();
 }
 
-class _CreateTodoState extends State<CreateTodo> {
+class _AddTodoState extends State<AddTodo> {
   final TextEditingController newTodoController = TextEditingController();
 
   @override

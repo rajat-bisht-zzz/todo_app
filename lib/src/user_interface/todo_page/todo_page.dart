@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/pages/todo_page/create_todo.dart';
-import 'package:todo_app/pages/todo_page/show_todos.dart';
-import 'package:todo_app/pages/todo_page/todo_header.dart';
-import 'package:todo_app/pages/todo_page/todo_time_header.dart';
+import 'package:todo_app/src/user_interface/todo_page/add_todo/add_todo.dart';
+import 'package:todo_app/src/user_interface/todo_list/todo_list.dart';
+import 'package:todo_app/src/user_interface/todo_page/todo_header/todo_header.dart';
+import 'package:todo_app/src/user_interface/todo_page/todo_time_header/todo_time_header.dart';
 
 class TodoPage extends StatelessWidget {
   const TodoPage({Key? key});
@@ -27,7 +27,7 @@ class TodoPage extends StatelessWidget {
                     children: [
                       TodoHeader(),
                       SizedBox(height: 20),
-                      CreateTodo(),
+                      AddTodo(),
                       SizedBox(height: 20),
                       TodosList(),
                     ],

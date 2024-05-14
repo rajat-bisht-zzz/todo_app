@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/widgets/primary_checkbox.dart';
+import 'package:todo_app/src/widgets/primary_checkbox.dart';
 
 class CustomTile extends StatelessWidget {
   final String todoDescription;

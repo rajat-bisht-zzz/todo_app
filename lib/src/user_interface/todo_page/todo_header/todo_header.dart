@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/widgets/primary_heading.dart';
-import 'package:todo_app/widgets/secondary_heading.dart';
+import 'package:todo_app/src/widgets/primary_heading.dart';
+import 'package:todo_app/src/widgets/secondary_heading.dart';
 
 class TodoHeader extends StatelessWidget {
   const TodoHeader({super.key});

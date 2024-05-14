@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:todo_app/src/user_interface/todo_list/todo_items/todo_list_cubit.dart';
+import 'package:todo_app/src/user_interface/todo_page/search_field/todo_search_cubit.dart';
 
 import '../../models/todo_model.dart';
 import '../todo_filter/todo_filter_cubit.dart';
-import '../todo_list/todo_list_cubit.dart';
-import '../todo_search/todo_search_cubit.dart';
 
 part 'filtered_todos_state.dart';
 
@@ -27,18 +27,15 @@ class FilteredTodosCubit extends Cubit<FilteredTodosState> {
     required this.todoSearchCubit,
     required this.todoListCubit,
   }) : super(FilteredTodosState(filteredTodos: initialTodos)) {
-    todoFilterSubscription =
-        todoFilterCubit.stream.listen((TodoFilterState todoFilterState) {
+    todoFilterSubscription = todoFilterCubit.stream.listen((TodoFilterState todoFilterState) {
       setFilteredTodos();
     });
 
-    todoSearchSubscription =
-        todoSearchCubit.stream.listen((TodoSearchState todoSearchState) {
+    todoSearchSubscription = todoSearchCubit.stream.listen((TodoSearchState todoSearchState) {
       setFilteredTodos();
     });
 
-    todoListSubscription =
-        todoListCubit.stream.listen((TodoListState todoListState) {
+    todoListSubscription = todoListCubit.stream.listen((TodoListState todoListState) {
       setFilteredTodos();
     });
   }
@@ -48,14 +45,10 @@ class FilteredTodosCubit extends Cubit<FilteredTodosState> {
 
     switch (todoFilterCubit.state.filter) {
       case Filter.active:
-        _filteredTodos = todoListCubit.state.todos
-            .where((Todo todo) => !todo.completed)
-            .toList();
+        _filteredTodos = todoListCubit.state.todos.where((Todo todo) => !todo.completed).toList();
         break;
       case Filter.completed:
-        _filteredTodos = todoListCubit.state.todos
-            .where((Todo todo) => todo.completed)
-            .toList();
+        _filteredTodos = todoListCubit.state.todos.where((Todo todo) => todo.completed).toList();
         break;
       case Filter.all:
       default:
@@ -65,9 +58,7 @@ class FilteredTodosCubit extends Cubit<FilteredTodosState> {
 
     if (todoSearchCubit.state.searchTerm.isNotEmpty) {
       _filteredTodos = _filteredTodos
-          .where((Todo todo) => todo.desc
-              .toLowerCase()
-              .contains(todoSearchCubit.state.searchTerm))
+          .where((Todo todo) => todo.desc.toLowerCase().contains(todoSearchCubit.state.searchTerm))
           .toList();
     }
     emit(state.copyWith(filteredTodos: _filteredTodos));

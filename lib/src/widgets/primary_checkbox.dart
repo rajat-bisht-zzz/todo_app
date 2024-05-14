@@ -22,14 +22,13 @@ class _PrimaryCheckboxState extends State<PrimaryCheckbox> {
       onTap: toggleCheckbox,
       child: Container(
           width: 18,
-          height: 18, 
+          height: 18,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.black), 
-            color: backgroundColor, 
+            border: Border.all(color: Colors.black),
+            color: backgroundColor,
           ),
-          child: Icon(Icons.check, weight: 2, size: 12, color: Colors.black) 
-          ),
+          child: Icon(Icons.check, weight: 2, size: 12, color: Colors.black)),
     );
   }
 }

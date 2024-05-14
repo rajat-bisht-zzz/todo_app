@@ -1,10 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:todo_app/src/user_interface/todo_list/todo_items/todo_list_cubit.dart';
 
-import 'package:todo_app/cubit/todo_list/todo_list_cubit.dart';
 
 import '../../models/todo_model.dart';
 

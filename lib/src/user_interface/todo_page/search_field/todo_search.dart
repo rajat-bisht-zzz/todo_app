@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/cubit/cubits.dart';
-import 'package:todo_app/utils/debounce.dart';
+import 'package:todo_app/src/cubit/cubits.dart';
+import 'package:todo_app/src/user_interface/todo_page/search_field/todo_search_cubit.dart';
+import 'package:todo_app/src/utilities/debounce.dart';
 
-import '../../models/todo_model.dart';
+import '../../../models/todo_model.dart';
 
 class TodoSearch extends StatelessWidget {
   TodoSearch({super.key});
