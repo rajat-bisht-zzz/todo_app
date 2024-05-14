@@ -29,7 +29,7 @@ class TodoPage extends StatelessWidget {
                       SizedBox(height: 20),
                       CreateTodo(),
                       SizedBox(height: 20),
-                      ShowTodos(),
+                      TodosList(),
                     ],
                   ),
                 ),

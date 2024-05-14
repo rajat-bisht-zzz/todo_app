@@ -5,8 +5,8 @@ import 'package:todo_app/cubit/filtered_todos/filtered_todos_cubit.dart';
 import 'package:todo_app/cubit/todo_list/todo_list_cubit.dart';
 import 'package:todo_app/pages/todo_items.dart';
 
-class ShowTodos extends StatelessWidget {
-  const ShowTodos({super.key});
+class TodosList extends StatelessWidget {
+  const TodosList({super.key});
 
   @override
   Widget build(BuildContext context) {
