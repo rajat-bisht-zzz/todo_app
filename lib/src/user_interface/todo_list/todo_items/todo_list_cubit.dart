@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:todo_app/src/models/todo_model.dart';
+import 'package:todo_app/src/user_interface/todo_list/todo_list_bloc.dart';
 
-part 'todo_list_state.dart';
 
 class TodoListCubit extends Cubit<TodoListState> {
   TodoListCubit() : super(TodoListState.initial());

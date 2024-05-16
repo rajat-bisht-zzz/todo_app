@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:todo_app/src/user_interface/todo_list/todo_items/todo_list_cubit.dart';
+import 'package:todo_app/src/user_interface/todo_list/todo_list_bloc.dart';
 import 'package:todo_app/src/user_interface/todo_page/search_field/todo_search_cubit.dart';
 
 import '../../models/todo_model.dart';
@@ -19,13 +19,13 @@ class FilteredTodosCubit extends Cubit<FilteredTodosState> {
 
   final TodoFilterCubit todoFilterCubit;
   final TodoSearchCubit todoSearchCubit;
-  final TodoListCubit todoListCubit;
+  final TodoListBloc todoListBloc;
 
   FilteredTodosCubit({
     required this.initialTodos,
     required this.todoFilterCubit,
     required this.todoSearchCubit,
-    required this.todoListCubit,
+    required this.todoListBloc,
   }) : super(FilteredTodosState(filteredTodos: initialTodos)) {
     todoFilterSubscription = todoFilterCubit.stream.listen((TodoFilterState todoFilterState) {
       setFilteredTodos();
@@ -35,7 +35,7 @@ class FilteredTodosCubit extends Cubit<FilteredTodosState> {
       setFilteredTodos();
     });
 
-    todoListSubscription = todoListCubit.stream.listen((TodoListState todoListState) {
+    todoListSubscription = todoListBloc.stream.listen((TodoListState todoListState) {
       setFilteredTodos();
     });
   }
@@ -45,14 +45,14 @@ class FilteredTodosCubit extends Cubit<FilteredTodosState> {
 
     switch (todoFilterCubit.state.filter) {
       case Filter.active:
-        _filteredTodos = todoListCubit.state.todos.where((Todo todo) => !todo.completed).toList();
+        _filteredTodos = todoListBloc.state.todos.where((Todo todo) => !todo.completed).toList();
         break;
       case Filter.completed:
-        _filteredTodos = todoListCubit.state.todos.where((Todo todo) => todo.completed).toList();
+        _filteredTodos = todoListBloc.state.todos.where((Todo todo) => todo.completed).toList();
         break;
       case Filter.all:
       default:
-        _filteredTodos = todoListCubit.state.todos;
+        _filteredTodos = todoListBloc.state.todos;
         break;
     }
 

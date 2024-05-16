@@ -1,18 +1,18 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/src/cubit/cubits.dart';
+import 'package:todo_app/src/models/todo_model.dart';
 import 'package:todo_app/src/user_interface/todo_list/todo_items/todo_items.dart';
 import 'package:todo_app/src/user_interface/todo_list/todo_list_bloc.dart';
 
-class TodosList extends StatelessWidget {
-  const TodosList({super.key});
+class TodosListPage extends StatelessWidget {
+  const TodosListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final todos = context.watch<FilteredTodosCubit>().state.filteredTodos;
+    final List<Todo> todos = context.watch<FilteredTodosCubit>().state.filteredTodos;
 
-    return BlocProvider(
+    return BlocProvider<TodoListBloc>(
       create: (context) => TodoListBloc(),
       child: ListView.builder(
         primary: false,
