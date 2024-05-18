@@ -1,7 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/src/cubit/cubits.dart';
 import 'package:todo_app/src/user_interface/todo_list/todo_items/todo_items.dart';
 import 'package:todo_app/src/user_interface/todo_list/todo_list_bloc.dart';
 
@@ -10,18 +8,18 @@ class TodosList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final todos = context.watch<FilteredTodosCubit>().state.filteredTodos;
+    // final todos = context.watch<FilteredTodosCubit>().state.filteredTodos;
 
-    return BlocProvider(
-      create: (context) => TodoListBloc(),
-      child: ListView.builder(
+    return BlocBuilder<TodoListBloc, TodoListState>(builder: (context, state) {
+      return ListView.builder(
         primary: false,
         shrinkWrap: true,
-        itemCount: todos.length,
+        itemCount: state.todos.length,
         itemBuilder: (BuildContext context, int index) {
+          final todo = state.todos[index];
           return Dismissible(
               onDismissed: (_) {
-                context.read<TodoListBloc>().add(RemoveTodoEvent(todos[index]));
+                context.read<TodoListBloc>().add(RemoveTodoEvent(todo));
               },
               confirmDismiss: (_) {
                 return showDialog(
@@ -46,11 +44,11 @@ class TodosList extends StatelessWidget {
               },
               background: showBackground(0),
               secondaryBackground: showBackground(1),
-              key: ValueKey(todos[index].id),
-              child: TodoItem(todo: todos[index]));
+              key: ValueKey(todo.id),
+              child: TodoItem(todo: todo));
         },
-      ),
-    );
+      );
+    });
   }
 
   Widget showBackground(int direction) {
