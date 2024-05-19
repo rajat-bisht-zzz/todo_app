@@ -31,6 +31,9 @@ class TodoItem extends StatelessWidget {
               context.read<TodoListBloc>().add(RemoveTodoEvent(todo));
             },
           ),
+          SizedBox(
+            width: 20,
+          ),
           PrimaryCheckbox(
               // value: isChecked,
               // onChanged: onCheckedChanged,
