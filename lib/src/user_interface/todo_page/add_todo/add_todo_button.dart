@@ -9,14 +9,39 @@ class AddTodoButton extends StatelessWidget {
     return FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () {
-        showModalBottomSheet(
-            isScrollControlled: true,
-            context: context,
-            builder: (context) {
-              return TodoBottomSheet();
-            });
+        showCustomBottomSheet(context);
       },
       shape: CircleBorder(),
     );
   }
+}
+
+void showCustomBottomSheet(BuildContext context) {
+  final screenHeight = MediaQuery.of(context).size.height;
+  showGeneralDialog(
+    context: context,
+    barrierDismissible: true,
+    barrierLabel: "Dismiss",
+    barrierColor: Color(0xFF49BEB6),
+    transitionDuration: Duration(milliseconds: 300),
+    pageBuilder: (context, animation1, animation2) {
+      return Align(
+        alignment: Alignment.bottomCenter,
+        child: Material(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+          child: Container(
+            height: screenHeight * 0.8, // 80% of screen height
+            padding: EdgeInsets.all(16.0),
+            child: TodoBottomSheet(),
+          ),
+        ),
+      );
+    },
+    transitionBuilder: (context, animation1, animation2, child) {
+      return SlideTransition(
+        position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(animation1),
+        child: child,
+      );
+    },
+  );
 }
