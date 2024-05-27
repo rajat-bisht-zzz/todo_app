@@ -47,7 +47,7 @@ class TodosListPage extends StatelessWidget {
               background: showBackground(0),
               secondaryBackground: showBackground(1),
               key: ValueKey(todos[index].id),
-              child: TodoItem(todo: todos[index]));
+              child: TodoItems(todo: todos[index]));
         },
       ),
     );

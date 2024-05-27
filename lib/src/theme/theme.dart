@@ -7,6 +7,7 @@ ThemeData lightMode = ThemeData(
     secondary: Colors.grey.shade200,
     tertiary: Colors.white,
   ),
+  iconTheme: IconThemeData(color: Colors.black54),
   textTheme: TextTheme(),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
