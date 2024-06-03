@@ -8,7 +8,7 @@ part 'todo_list_state.dart';
 class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
   TodoListBloc() : super(TodoListState.initial()) {
     on<AddTodoEvent>((event, emit) {
-      final newTodo = Todo(desc: event.todoDescription);
+      final newTodo = Todo(desc: event.todoDescription, time: DateTime.now(), place: '', reminder: 1);
       final newTodos = [...state.todos, newTodo];
 
       emit(state.copyWith(todos: newTodos));
@@ -17,7 +17,13 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
     on<EditTodoEvent>((event, emit) {
       final newTodo = state.todos.map((Todo todo) {
         if (todo.id == event.id) {
-          return Todo(desc: event.todoDescription, id: event.id, completed: todo.completed);
+          return Todo(
+              desc: event.todoDescription,
+              id: event.id,
+              completed: todo.completed,
+              time: DateTime.now(),
+              place: '',
+              reminder: 1);
         }
         return todo;
       }).toList();
@@ -27,7 +33,8 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
     on<ToggleTodoEvent>((event, emit) {
       final newTodos = state.todos.map((Todo todo) {
         if (todo.id == event.id) {
-          return Todo(desc: todo.desc, id: event.id, completed: !todo.completed);
+          return Todo(
+              desc: todo.desc, id: event.id, completed: !todo.completed, time: DateTime.now(), place: '', reminder: 1);
         }
         return todo;
       }).toList();
