@@ -30,7 +30,7 @@ void showCustomBottomSheet(BuildContext context) {
         child: Material(
           borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
           child: Container(
-            height: screenHeight * 0.8, // 80% of screen height
+            height: screenHeight * 0.8,
             padding: EdgeInsets.all(16.0),
             child: TodoBottomSheet(),
           ),
