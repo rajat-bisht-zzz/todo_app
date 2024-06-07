@@ -19,24 +19,47 @@ class _TodoBottomSheetState extends State<TodoBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextField(
-            controller: _controller,
-            decoration: InputDecoration(
-              hintText: 'Task',
+          Container(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(36.0),
+                    child: TextField(
+                      style: TextStyle(fontSize: 40.0),
+                      cursorHeight: 50,
+                      cursorRadius: Radius.circular(10),
+                      cursorColor: Colors.amberAccent,
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(bottom: 10.0),
+                        border: InputBorder.none,
+                        hintText: 'Task',
+                        hintStyle: TextStyle(fontSize: 40.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              final desc = _controller.text;
-              desc.isNotEmpty ? context.read<TodoListBloc>().add(AddTodoEvent(todoDescription: desc)) : null;
-              Navigator.pop(context);
-            },
-            child: Center(child: Text('add')),
+          Center(
+            child: SizedBox(
+              width: 80,
+              child: ElevatedButton(
+                onPressed: () {
+                  final desc = _controller.text;
+                  if (desc.isNotEmpty) {
+                    context.read<TodoListBloc>().add(AddTodoEvent(todoDescription: desc));
+                  }
+                  Navigator.pop(context);
+                },
+                child: Center(child: Text('add')),
+              ),
+            ),
           ),
         ],
       ),
