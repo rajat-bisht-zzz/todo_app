@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart'; // Import intl package
 import 'package:todo_app/src/models/todo_model.dart';
 import 'package:todo_app/src/user_interface/todo_list/todo_list_bloc.dart';
 import 'package:todo_app/src/utilities/date_input.dart';
@@ -13,16 +12,6 @@ class TodoItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final timeFormatted = DateFormat('ha')
-        .format(
-          DateTime(
-            todo.time.year,
-            todo.time.month,
-            todo.time.day,
-            todo.time.hour,
-          ),
-        )
-        .replaceAll(' ', '');
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
