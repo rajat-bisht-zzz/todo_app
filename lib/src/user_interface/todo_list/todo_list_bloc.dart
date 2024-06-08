@@ -35,7 +35,12 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
       final newTodos = state.todos.map((Todo todo) {
         if (todo.id == event.id) {
           return Todo(
-              desc: todo.desc, id: event.id, completed: !todo.completed, time: DateTime.now(), place: '', reminder: 1);
+              desc: todo.desc,
+              id: event.id,
+              completed: !todo.completed,
+              time: DateTime.now(),
+              place: todo.place,
+              reminder: 1);
         }
         return todo;
       }).toList();
