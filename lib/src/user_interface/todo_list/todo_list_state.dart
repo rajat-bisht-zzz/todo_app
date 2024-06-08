@@ -7,11 +7,7 @@ class TodoListState extends Equatable {
   });
 
   factory TodoListState.initial() {
-    return TodoListState(todos: [
-      Todo(id: '1', desc: 'Woke Up', time: DateTime.now(), place: 'Flat/Home', reminder: 1),
-      Todo(id: '2', desc: 'Breakfast', time: DateTime.now(), place: 'Flat/Home', reminder: 1),
-      Todo(id: '3', desc: 'Office', time: DateTime.now(), place: '', reminder: 1),
-    ]);
+    return TodoListState(todos: predefinedTasks);
   }
 
   @override

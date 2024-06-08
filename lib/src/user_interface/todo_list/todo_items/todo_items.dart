@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart'; // Import intl package
 import 'package:todo_app/src/models/todo_model.dart';
 import 'package:todo_app/src/user_interface/todo_list/todo_list_bloc.dart';
+import 'package:todo_app/src/utilities/date_input.dart';
 import 'package:todo_app/src/widgets/primary_checkbox.dart';
 
 class TodoItems extends StatelessWidget {
@@ -45,7 +46,7 @@ class TodoItems extends StatelessWidget {
                 ),
                 const SizedBox(height: 4.0),
                 Text(
-                  '$timeFormatted, ${todo.place}',
+                  '${getFormattedTime(todo.time)}, ${todo.place}',
                   style: TextStyle(
                     fontSize: 14.0,
                     color: Colors.grey,
